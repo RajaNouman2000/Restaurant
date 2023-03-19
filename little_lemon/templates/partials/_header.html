@@ -1,0 +1,30 @@
+{% load static %}
+
+<div class="">
+  <footer style="background-color: #ee9972"></footer>
+  <header>
+    <img src="{% static 'images/logo.png' %}" />
+  </header>
+
+  <nav class="navbar-custom">
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a
+          class="nav-link active text-dark"
+          aria-current="page"
+          href="{% url 'home' %}"
+          >Home</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-dark" href="{% url 'menu' %}">Menu</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-dark" href="{% url 'booking' %}">Book</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-dark" href="{% url 'about' %}">About</a>
+      </li>
+    </ul>
+  </nav>
+</div>

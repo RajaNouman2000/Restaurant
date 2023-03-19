@@ -1,0 +1,29 @@
+.navbar-custom {
+  background-color: #ccd5ae;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #e9edc9;
+}
+
+.content {
+  flex: 1;
+}
+
+.footer {
+  flex-shrink: 0;
+  height: 70px; /* set the height to match your footer content */
+  background-color: #6b8663;
+}
+
+.footer_image {
+  padding-top: 10px;
+}
+
+.menu_image {
+  width: 100%;
+  height: 100%;
+}

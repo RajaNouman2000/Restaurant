@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<h1 style="color: #495e57">Menu</h1>
+
+<div class="column">
+  {% if menu%} {% for item in menu %}
+  <p>
+    <a class="text-dark" href="{% url 'menu_item' pk=item.pk %}">
+      <b>{{ item.name }}</b> </a
+    ><br />
+    <span class="menu-price"> ${{item.price}}.00 </span>
+    {% endfor %} {% endif %}
+  </p>
+</div>
+
+{% endblock %}
