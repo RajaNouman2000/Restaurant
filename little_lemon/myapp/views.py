@@ -1,4 +1,9 @@
 from django.shortcuts import render
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework.decorators import api_view
+from rest_framework.views import APIView
+
 from .models import Menu
 # Create your views here.
 
@@ -21,8 +26,14 @@ def menu(request):
     return render(request, 'menu.html', main_data)
 
 
-def index(request):
-    return render(request, 'index.html')
+class Menu(APIView):
+    def get(self, request):
+        menu_name = request.GET.get('name')
+        return Response({"message": "list of the menu"+menu_name}, status.HTTP_200_OK)
+
+    def post(self, request):
+
+        return Response({"message": "list of the menu"}, status.HTTP_200_OK)
 
 
 def display_menu_item(request, pk):
