@@ -3,9 +3,24 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
-
 from .models import Menu
+
+
+from rest_framework import generics
+from . serializers import MenuItemSerializer
+from .models import MenuItem
+
 # Create your views here.
+
+
+class MenuItemsViews(generics.ListCreateAPIView):
+    queryset = MenuItem.objects.select_related('category').all()
+    serializer_class = MenuItemSerializer
+
+
+class SingleMenuItemView(generics.RetrieveUpdateAPIView, generics.DestroyAPIView):
+    queryset = MenuItem.objects.all()
+    serializer_class = MenuItemSerializer
 
 
 def home(request):
