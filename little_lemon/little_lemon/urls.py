@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenBlackListView
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 urlpatterns = [
     path('', include('myapp.urls')),
@@ -25,5 +25,4 @@ urlpatterns = [
     path('auth/', include('djoser.urls.authtoken')),
     path('api/token', TokenObtainPairView.as_view(), name='token_otain_pair'),
     path('api/token/refresh', TokenRefreshView.as_view(), name='token_refresh'),
-    path('api/token/blacklist', TokenBlackListView.as_view(), name='token_blacklist'),
 ]
