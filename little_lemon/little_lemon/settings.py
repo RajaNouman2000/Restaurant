@@ -41,12 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
-    "myapp",
+    "LittleLemonAPI",
     'debug_toolbar',
     'djoser',
-    'rest_framework_simplejwt',
-    'rest_framework_simplejwt.token_blacklist',
-
 ]
 
 MIDDLEWARE = [
@@ -87,7 +84,7 @@ WSGI_APPLICATION = 'little_lemon.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'littlelemon',
+        'NAME': 'LittleLemonAPI',
         'USER': 'root',
         'PASSWORD': 'root',
         'HOST': 'localhost',
@@ -156,10 +153,9 @@ REST_FRAMEWORK = {
         'rest_framework.filters.SearchFilter',
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-        # <-- for token-based authentication
+
         'rest_framework.authentication.TokenAuthentication',
-        # <-- for session-based authentication
+
         'rest_framework.authentication.SessionAuthentication',
     ),
 
@@ -175,8 +171,4 @@ REST_FRAMEWORK = {
 
 DJOSER = {
     "USER_ID_FIELD": 'username'
-}
-
-SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5)
 }
