@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import Permission
 from django.contrib.auth.models import User
 # Create your models here.
 
@@ -17,6 +18,9 @@ class MenuItem(models.Model):
     featured = models.BooleanField(db_index=True)
     category = models.ForeignKey(Category, on_delete=models.PROTECT, default=1)
 
+    def __str__(self) -> str:
+        return self.title
+
 
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -27,6 +31,9 @@ class Cart(models.Model):
 
     class Meta:
         unique_together = ('menuitem', 'user')
+
+    def __str__(self):
+        return self.user.username
 
 
 class Order(models.Model):
